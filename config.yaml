@@ -1,0 +1,189 @@
+# PROXIMITY: distance between left or right x coordinates of vertically consecutive polygons for creating columns
+# Y_THRESHOLD: for row creation
+# MERGING_THRESHOLD: for merging very close polygons. This value shall NOT be large
+# SCHOOL_PATTERN is regex to identify School and / or Centre names
+# ALIGN_Fn can NOT be blank. Name must be defined in function_map dict in align_columns.py
+# and define the function if not already defined.
+# Weights are for image correction, if needed else give 0 weights
+# filtering_words: # Used to remove additional headers, rows, if any, in between the student data
+
+year_1975:
+  form1:
+    PROXIMITY: 30
+    Y_THRESHOLD: 30
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_below
+    filtering_words:
+      - paper
+      - sheet
+      - ibm
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+  form2:
+    PROXIMITY: 15
+    Y_THRESHOLD: 30
+    MERGING_THRESHOLD: 15
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_below
+    filtering_words:
+      - examination
+      - page-
+      - ibm
+      - r.no
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+
+year_1976:
+  form1: #done
+    PROXIMITY: 15
+    Y_THRESHOLD: 20
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_before_midpoint
+    filtering_words:
+      - examination
+      - page-
+      - r.no
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+  form2: #done
+    PROXIMITY: 20
+    Y_THRESHOLD: 15
+    MERGING_THRESHOLD: 15
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_below
+    filtering_words:
+      - examination
+      - page
+      - paper
+      - marks
+    weights:
+      blue: 1
+      green: 0
+      red: 0
+  form3: #done
+    PROXIMITY: 20
+    Y_THRESHOLD: 20
+    MERGING_THRESHOLD: 15
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_below
+    filtering_words:
+      - examination
+      - sheet
+      - page-
+      - additional
+      - r.no
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+
+year_1977:
+  form1:
+    PROXIMITY: 20
+    Y_THRESHOLD: 30
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_before_midpoint
+    filtering_words:
+      - paper
+      - sheet
+      - ibm
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+
+year_1995:
+  form1:
+    PROXIMITY: 10
+    Y_THRESHOLD: 15
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: 'SCHOOL\s*:\s*\d{4}\s+[A-Za-z-.\s]+(?:\s+[A-Za-z.\s]+)+'
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+
+year_1997:
+  form1: #Done
+    PROXIMITY: 15
+    Y_THRESHOLD: 25
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: 'SCHOOL\s*:\s*(.*?)\s*(?:CENTRE\s*:\s*(.*))?$'
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 1
+      green: 0
+      red: 0
+  form2:  #Done
+    PROXIMITY: 10
+    Y_THRESHOLD: 25
+    MERGING_THRESHOLD: 15
+    SCHOOL_PATTERN: 'SCHOOL\s*:\s*(.*?)\s*(?:CENTRE\s*:\s*(.*))?$'
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 1
+      green: 0
+      red: 0
+  form3:
+    PROXIMITY: 10
+    Y_THRESHOLD: 25
+    MERGING_THRESHOLD: 15
+    SCHOOL_PATTERN: 'SCHOOL\s-\d{4}\s[\w\.\s\-]+?(?=\s\d{2}-\d{2}-\d{2}|$)'
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 1
+      green: 0
+      red: 0
+
+year_1998:
+  form1:
+    PROXIMITY: 15
+    Y_THRESHOLD: 40
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: 'SCHOOL\s*:\s*(.*?)\s*(?:CENTRE\s*:\s*(.*))?$'
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 0
+      green: 0
+      red: 1
+
+year_1999:
+  form1:
+    PROXIMITY: 15
+    Y_THRESHOLD: 15
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: 'SCHOOL\s-\s\d{4}[a-zA-Z\s\.\-]*'
+    ALIGN_Fn: left_or_before_midpoint
+    weights:
+      blue: 0
+      green: 0
+      red: 1
+
+year_2050:
+  form1:
+    PROXIMITY: 15
+    Y_THRESHOLD: 30
+    MERGING_THRESHOLD: 10
+    SCHOOL_PATTERN: ''
+    ALIGN_Fn: left_or_right_or_below
+    weights:
+      blue: 0
+      green: 0
+      red: 0
+
+# filtering_words: # Used to remove additional headers, rows, if any, in between the student data
+#   - 'no'
+#   - mks
+#   - result
+#   - page
+#   - compartments
